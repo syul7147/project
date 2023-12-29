@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ezen.project.mapper.CartMapper">
+
+<select id="cartChk" resultType="cartDTO">
+	SELECT * FROM m_cart WHERE pnum=#{pnum}
+</select>
+<insert id="cartInsert">
+	INSERT INTO m_cart (id,pnum,pqty) VALUE (#{id}, ${pnum}, ${pqty})
+</insert>
+
+<select id="getCart" resultType="cartDTO">
+	SELECT c.cnum,c.id,c.pnum,c.pqty,p.pimage,p.pname,p.price,p.point,p.pspec FROM m_cart c, m_product p WHERE c.pnum=p.pnum AND id = #{id}
+</select>
+<update id="cartModify">
+	UPDATE m_cart SET pqty=${pqty} WHERE cnum=${cnum}
+</update>
+<delete id="cartDelete">
+	DELETE FROM m_cart WHERE pnum=${pnum} AND id=#{id}
+</delete>
+<select id="memberInfo" resultType="userDTO">
+	SELECT * FROM m_user WHERE id=#{id}
+</select>
+</mapper>
+
+
+
+
+

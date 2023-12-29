@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+  	<typeAlias type="kr.ezen.project.domain.BoardDTO" alias="boardDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.MemberDTO" alias="memberDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.ReplyDTO" alias="replyDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.AdminDTO" alias="adminDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.CategoryDTO" alias="categoryDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.ScategoryDTO" alias="scategoryDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.ProductDTO" alias="productDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.UserDTO" alias="userDTO"/>
+  	<typeAlias type="kr.ezen.project.domain.CartDTO" alias="cartDTO"/>
+  </typeAliases>
+</configuration>

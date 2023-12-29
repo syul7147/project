@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ezen.project.mapper.ShopMapper">
+
+<select id="getSpec" resultType="productDTO">
+	SELECT * FROM m_product WHERE pspec=#{pspec}
+</select>
+<select id="getCat" resultType="productDTO">
+	SELECT * FROM m_product WHERE pcategory_fk=#{c_code}
+</select>
+<select id="getS" resultType="scategoryDTO">
+	SELECT * FROM m_scategory WHERE c_code=#{c_code}
+</select>
+<select id="getSub" resultType="productDTO">
+	SELECT * FROM m_product WHERE psubcategory_fk=#{c_subname}
+</select>
+<select id="getView" resultType="productDTO">
+	SELECT * FROM m_product WHERE pnum=#{pnum}
+</select>
+
+</mapper>
+
+
+
+
+

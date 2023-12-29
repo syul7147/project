@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ezen.project.mapper.AdminMapper">
+
+<!-- admin -->
+  <select id="loginOk" resultType="adminDTO">
+  	SELECT id,pw,name FROM m_admin WHERE id = #{id}
+  </select>
+   <insert id="registerOk">
+  	INSERT INTO m_admin VALUE(#{id},#{pw},#{name},#{email})
+  </insert>
+  
+  <select id="idCheck" resultType="String">
+  	SELECT id FROM ma_admin WHERE id = #{id}
+  </select>
+  
+ <!-- category -->
+  <insert id="categoryOk">
+  	INSERT INTO m_category(c_code,c_name) VALUE(#{c_code},#{c_name})
+  </insert>
+    <select id="getCList" resultType="categoryDTO">
+  	SELECT * FROM m_category
+  </select>
+
+  <select id="cListGet" resultType="categoryDTO">
+  	SELECT * FROM m_category WHERE c_num = #{c_num}
+  </select>
+  <delete id="delete">
+  	DELETE FROM m_category WHERE c_num = #{c_num}
+  </delete>
+  <update id="c_update">
+  	UPDATE m_category SET c_code=#{c_code}, c_name=#{c_name} WHERE c_num = #{c_num}
+  </update>
+  <!-- subcategory -->
+   <insert id="inputSub" >
+  	INSERT INTO m_scategory(c_code,c_subname) VALUE(#{c_code},#{c_subname})
+  </insert>
+    <select id="getScList" resultType="scategoryDTO">
+  	SELECT * FROM m_scategory
+  </select>
+  <select id="getSlist" resultType="scategoryDTO">
+  SELECT * FROM m_scategory WHERE c_num=#{c_num}
+  </select>
+    <delete id="subdelete">
+  	DELETE FROM m_scategory WHERE c_num = #{c_num}
+  </delete>
+    <update id="s_update">
+  	UPDATE m_scategory SET c_code=#{c_code}, c_subname=#{c_subname} WHERE c_num = #{c_num}
+  </update>
+  
+ <!-- prod -->
+  <insert id="prodInput">
+  	INSERT INTO m_product (pname,pcategory_fk,psubcategory_fk,pcompany,pimage,pqty,price,pspec,pcontent,psize,point) VALUE (#{pname},#{pcategory_fk},#{psubcategory_fk},#{pcompany},#{pimage},#{pqty},#{price},#{pspec},#{pcontent},#{psize},#{point})
+  </insert>
+  <select id="getProdList" resultType="productDTO">
+  	SELECT * FROM m_product
+  </select>
+  <select id="getProdModify" resultType="productDTO">
+  	SELECT * FROM m_product WHERE pnum=#{pnum}
+  </select>
+   <update id="prodModify">
+  	UPDATE m_product SET pname=#{pname},pcategory_fk=#{pcategory_fk},psubcategory_fk=#{psubcategory_fk},pcompany=#{pcompany},pimage=#{pimage},pqty=#{pqty},price=#{price},pspec=#{pspec},pcontent=#{pcontent},psize=#{psize},point=#{point} WHERE pnum=#{pnum}
+  </update>
+    <delete id="deleteProd">
+  	DELETE FROM m_product WHERE pnum = #{pnum}
+  </delete>
+  <select id="getPdList" resultType="productDTO">
+  	SELECT * FROM m_product WHERE pspec=#{ps}
+  </select>
+  <select id="userList" resultType="userDTO">
+  	SELECT * FROM m_user
+  </select>
+   <delete id="userDel">
+  	DELETE FROM m_user WHERE id = #{id}
+  </delete>
+</mapper>
+
+
+
+ 
+
